@@ -1,4 +1,4 @@
-define( ["text!./chart-template.ng.html", "css!./chart-template.css"],
+define( ["text!./QSenseGauge.html", "css!./QSenseGauge.css"],
 	function ( template ) {
 		"use strict";
 		return {
@@ -17,11 +17,6 @@ define( ["text!./chart-template.ng.html", "css!./chart-template.css"],
 				type: "items",
 				component: "accordion",
 				items: {
-					dimensions: {
-						uses: "dimensions",
-						min: 1,
-						max: 1
-					},
 					measures: {
 						uses: "measures",
 						min: 1,
@@ -29,26 +24,36 @@ define( ["text!./chart-template.ng.html", "css!./chart-template.css"],
 					},
 					sorting: {
 						uses: "sorting"
-					}
+					},
+                    settings: {
+				        uses: "settings"
+			        }
 				}
 			},
 			snapshot: {
 				canTakeSnapshot: true
 			},
-			controller: ["$scope", "$element", function ( $scope, $element ) {
-				$scope.getPercent = function ( val ) {
-					return Math.round( (val * 100 / $scope.layout.qHyperCube.qMeasureInfo[0].qMax) * 100 ) / 100;
-				};
-				$scope.sel = function ( $event ) {
-					if ( $event.currentTarget.hasAttribute( "data-row" ) ) {
-						var row = parseInt( $event.currentTarget.getAttribute( "data-row" ), 10 ), dim = 0,
-							cell = $scope.$parent.layout.qHyperCube.qDataPages[0].qMatrix[row][0];
-						cell.qState = (cell.qState === "S" ? "O" : "S");
-						$scope.selectValues( dim, [cell.qElemNumber], true );
-						$element.find( $event.currentTarget ).addClass( "selected" );
+            paint: function ($element) {
+			    var html = "<table><tr>";
+                var self = this;
+                var lastrow = 0;
+                var morebutton = false;
+                var dimcount = this.backendApi.getDimensionInfos().length;
+			    //render data
+			    this.backendApi.eachDataRow(function(rownum, row) {
+				lastrow = rownum;
+				html += '<tr>';
+				$.each(row, function(key, cell) {
+					if(cell.qIsOtherCell) {
+						cell.qText = self.backendApi.getDimensionInfos()[key].othersLabel;
 					}
-				};
-			}]
+					html += "<td>'";
+					html += cell.qText + '</td>';
+				});
+				html += '</tr>';
+			});
+			html += "</table>";
+		}
 		};
 
 	} );
