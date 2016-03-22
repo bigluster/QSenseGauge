@@ -1,4 +1,4 @@
-define( ["text!./QSenseGauge.html", "css!./QSenseGauge.css"],
+define( ["./radialProgress", "./d3.min", "css!./QSenseGauge.css"],
 	function ( template ) {
 		"use strict";
 		return {
@@ -22,9 +22,6 @@ define( ["text!./QSenseGauge.html", "css!./QSenseGauge.css"],
 						min: 1,
 						max: 1
 					},
-					sorting: {
-						uses: "sorting"
-					},
                     settings: {
 				        uses: "settings"
 			        }
@@ -33,27 +30,16 @@ define( ["text!./QSenseGauge.html", "css!./QSenseGauge.css"],
 			snapshot: {
 				canTakeSnapshot: true
 			},
-            paint: function ($element) {
-			    var html = "<table><tr>";
-                var self = this;
-                var lastrow = 0;
-                var morebutton = false;
-                var dimcount = this.backendApi.getDimensionInfos().length;
-			    //render data
-			    this.backendApi.eachDataRow(function(rownum, row) {
-				lastrow = rownum;
-				html += '<tr>';
-				$.each(row, function(key, cell) {
-					if(cell.qIsOtherCell) {
-						cell.qText = self.backendApi.getDimensionInfos()[key].othersLabel;
-					}
-					html += "<td>'";
-					html += cell.qText + '</td>';
-				});
-				html += '</tr>';
-			});
-			html += "</table>";
-		}
+            paint: function ($element, layout) {
+                //$element.append('<div id="div1">');
+                $element.append('<div qv-extension style="height: 100%; position: relative; overflow: auto;"><div id="div1"></div></div>');
+                var hc = layout.qHyperCube;
+                var rad1 = radialProgress(document.getElementById('div1'))
+                .label(hc.qMeasureInfo[0].qFallbackTitle)
+                .diameter(200)
+                .value(hc.qDataPages[0].qMatrix[0][0].qText)
+                .render();
+            }
 		};
 
 	} );
