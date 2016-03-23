@@ -5,6 +5,7 @@
 
 <h3>Installation</h3>
 <ul>
+ <li>Download the project (or checkout)</li>
  <li>Go to C:\Users\<user>\Documents\Qlik\Examples\Extensions</li>
- <li>Copy the complete folder of the extension you want to C:\Users\<user>\Documents\Qlik\Sense\Extensions</li>
+ <li>Copy the complete folder to C:\Users\<user>\Documents\Qlik\Sense\Extensions</li>
 </ul>
