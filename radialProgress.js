@@ -23,14 +23,15 @@
  OTHER DEALINGS IN THE SOFTWARE.
  */
 
-function radialProgress(parent) {
+function radialProgress(parent, width, height, colors) {
+    var colors = colors;
     var _data=null,
         _duration= 1000,
         _selection,
         _margin = {top:0, right:0, bottom:30, left:0},
-        __width = 300,
-        __height = 300,
-        _diameter = 150,
+        __width = width,
+        __height = height,
+        _diameter = Math.min(width, height),//150,
         _label="",
         _fontSize=10;
 
@@ -98,6 +99,7 @@ function radialProgress(parent) {
             var path = svg.select(".arcs").selectAll(".arc").data(data);
             path.enter().append("path")
                 .attr("class","arc")
+                .attr("fill", colors[0])
                 .attr("transform", "translate(" + _width/2 + "," + _width/2 + ")")
                 .attr("d", _arc);
 
@@ -105,6 +107,7 @@ function radialProgress(parent) {
             var path2 = svg.select(".arcs").selectAll(".arc2").data(data);
             path2.enter().append("path")
                 .attr("class","arc2")
+                .attr("fill", colors[1])
                 .attr("transform", "translate(" + _width/2 + "," + _width/2 + ")")
                 .attr("d", _arc2);
 

@@ -23,39 +23,28 @@
  OTHER DEALINGS IN THE SOFTWARE.
  */
 
+.qv-object-CircularKPI .viz {
+	background:#FFFFFF;
+	border-radius: 15px;
+}
+
 .qv-object-QSenseGauge .background {
     fill: #FFFFFF;
-    fill-opacity: 0.01;
+    fill-opacity: 0;
 }
 
 .qv-object-QSenseGauge .component {
     fill: #e1e1e1;
 }
 
-.qv-object-QSenseGauge .component .label {
-    font-family: Myriad, "Helvetic Neue", Helvetica, Arial;
+.qv-object-QSenseGauge .label {
     text-anchor: middle;
-    fill: #0000FF;
 }
 
 .qv-object-QSenseGauge .arc {
-    stroke-weight:0.1;
-    fill: #4e8fff;
+    stroke-weight: 0;
 }
-
 
 .qv-object-QSenseGauge .arc2 {
-    stroke-weight:0.1;
-    fill: #3660b0;
-}
-
-
-.qv-object-QSenseGauge .label {
-    font-family:  Myriad, "Helvetic Neue", Helvetica, Arial;
-    text-anchor: middle;
-}
-
-.qv-object-QSenseGauge .radial-svg {
-    display: block;
-    margin: 0 auto;
+    stroke-weight: 0;
 }
