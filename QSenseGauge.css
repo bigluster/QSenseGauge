@@ -23,11 +23,6 @@
  OTHER DEALINGS IN THE SOFTWARE.
  */
 
-.qv-object-CircularKPI .viz {
-	background:#FFFFFF;
-	border-radius: 15px;
-}
-
 .qv-object-QSenseGauge .background {
     fill: #FFFFFF;
     fill-opacity: 0;
