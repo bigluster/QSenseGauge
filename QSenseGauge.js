@@ -1,27 +1,37 @@
 define(["./radialProgress", "./d3.min", "css!./QSenseGauge.css"],
   function(template) {
     "use strict";
-
+    
+    var palette = [
+        "#b0afae",
+        "#7b7a78",
+        "#545352",
+        "#4477aa",
+        "#7db8da",
+        "#b6d7ea",
+        "#46c646",
+        "#f93f17",
+        "#ffcf02",
+        "#276e27",
+        "#ffffff",
+        "#000000"
+    ];
 
     var ColorArc1 = {
       ref: "Arc1",
-      type: "number",
-      component: "slider",
-      label: "Colors Arc1",
-      min: 0,
-	  max: 16777215,
-      step: 1,
-      defaultValue: 15
+      type: "integer",      
+      translation: "properties.color", 
+      component: "color-picker",
+      label: "Arc 1",
+      defaultValue: 3  
     };
     var ColorArc2 = {
       ref: "Arc2",
-      type: "number",
-      component: "slider",
-      label: "Colors Arc2",
-      min: 0,
-	  max: 16777215,
-      step: 1,
-      defaultValue: 15
+      type: "integer",
+      translation: "properties.color", 
+      component: "color-picker",
+      label: "Arc 1",
+      defaultValue: 2  
     };
 
     return {
@@ -51,7 +61,7 @@ define(["./radialProgress", "./d3.min", "css!./QSenseGauge.css"],
               Colors: {
                 ref: "Color",
                 type: "items",
-                label: "Color",
+                label: "Arc colors",
                 items: {
                   Colors1: ColorArc1,
                   Colors2: ColorArc2
@@ -86,9 +96,8 @@ define(["./radialProgress", "./d3.min", "css!./QSenseGauge.css"],
         var value = hc.qDataPages[0].qMatrix[0][0].qNum;
         value = value * 100;
         
-          console.log(layout.Arc1.toString(16));
-        var colorAcr1 = '#' + layout.Arc1.toString(16);
-        var colorAcr2 = '#' + layout.Arc2.toString(16);
+        var colorAcr1 = palette[layout.Arc1];
+        var colorAcr2 = palette[layout.Arc2];
 
 
         var rad1 = radialProgress(div, width, height, [colorAcr1, colorAcr2])
