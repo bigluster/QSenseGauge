@@ -1,7 +1,7 @@
 define(["./radialProgress", "./d3.min", "css!./QSenseGauge.css"],
   function(template) {
     "use strict";
-    
+    //palette de couleur par défaut
     var palette = [
         "#b0afae",
         "#7b7a78",
@@ -17,6 +17,7 @@ define(["./radialProgress", "./d3.min", "css!./QSenseGauge.css"],
         "#000000"
     ];
 
+    //palette de sélection couleur 1
     var ColorArc1 = {
       ref: "Arc1",
       type: "integer",      
@@ -25,6 +26,7 @@ define(["./radialProgress", "./d3.min", "css!./QSenseGauge.css"],
       label: "Arc 1",
       defaultValue: 3  
     };
+    //palette de sélection couleur 2
     var ColorArc2 = {
       ref: "Arc2",
       type: "integer",
@@ -33,9 +35,9 @@ define(["./radialProgress", "./d3.min", "css!./QSenseGauge.css"],
       label: "Arc 1",
       defaultValue: 2  
     };
-
+    
+    //définition de l'objet
     return {
-      template: template,
       initialProperties: {
         qHyperCubeDef: {
           qDimensions: [],
@@ -74,36 +76,43 @@ define(["./radialProgress", "./d3.min", "css!./QSenseGauge.css"],
       snapshot: {
         canTakeSnapshot: true
       },
+      
+      //affichage de l'objet
       paint: function($element, layout) {
-        //$element.append('<div id="div1">');
-
+          
         //Taille de l'objet
         var width = $element.width();
         var height = $element.height();
 
         var id = "container_" + layout.qInfo.qId;
 
+        //ça marche mais pourquoi ?
         if (document.getElementById(id)) {
           $("#" + id).empty();
         } else {
           $element.append($('<div />').attr("id", id).attr("class", "viz").width(width).height(height));
         }
-
+        
+        //recup des données
         var hc = layout.qHyperCube;
+        //recup de la zone d'affichage
         var div = document.getElementById(id);
 
-
+        //recup de la valeur de la mesure
         var value = hc.qDataPages[0].qMatrix[0][0].qNum;
+        //passage en %
         value = value * 100;
         
+        //couleur arc 1 et 2
         var colorAcr1 = palette[layout.Arc1];
         var colorAcr2 = palette[layout.Arc2];
 
 
+        //Création de la jauge
         var rad1 = radialProgress(div, width, height, [colorAcr1, colorAcr2])
           .value(value)
           .render();
-      }
+       }
     };
 
   });
