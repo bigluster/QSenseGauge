@@ -21,7 +21,6 @@ define(["./radialProgress", "./d3.min", "css!./QSenseGauge.css"],
     var ColorArc1 = {
       ref: "Arc1",
       type: "integer",      
-      translation: "properties.color", 
       component: "color-picker",
       label: "Arc 1",
       defaultValue: 3  
@@ -30,7 +29,6 @@ define(["./radialProgress", "./d3.min", "css!./QSenseGauge.css"],
     var ColorArc2 = {
       ref: "Arc2",
       type: "integer",
-      translation: "properties.color", 
       component: "color-picker",
       label: "Arc 1",
       defaultValue: 2  
