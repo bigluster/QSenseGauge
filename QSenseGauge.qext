@@ -7,6 +7,7 @@
 	"author": "",
 	"homepage" : "",
 	"keywords" : "qlik-sense, visualization",
+    "preview" : "qsense_gauge.png",
 	"license" : "",
 	"repository" : "",
     "dependencies" : { "qlik-sense" : ">=2.2.x" }
