@@ -23,7 +23,7 @@
  OTHER DEALINGS IN THE SOFTWARE.
  */
 
-function radialProgress(parent, width, height, colors) {
+function radialProgress(parent, width, height, colors, image) {
     var colors = colors;
     var _data=null,
         _duration= 1000,
@@ -33,7 +33,7 @@ function radialProgress(parent, width, height, colors) {
         __height = height,
         _diameter = Math.min(width, height),//150,
         _label="",
-        _fontSize=10;
+        _fontSize=15;
 
 
     var _mouseClick;
@@ -111,20 +111,35 @@ function radialProgress(parent, width, height, colors) {
                 .attr("transform", "translate(" + _width/2 + "," + _width/2 + ")")
                 .attr("d", _arc2);
 
+					console.log(_height);
+					console.log(_width);
 
             enter.append("g").attr("class", "labels");
             var label = svg.select(".labels").selectAll(".label").data(data);
-            label.enter().append("text")
+            label.enter().append("image")
                 .attr("class","label")
-                .attr("y",_width/2+_fontSize/3)
-                .attr("x",_width/2)
-                .attr("cursor","pointer")
-                .attr("width",_width)
-                // .attr("x",(3*_fontSize/2))
-                .text(function (d) { return Math.round((_value-_minValue)/(_maxValue-_minValue)*100) + "%" })
-                .style("font-size",_fontSize+"px")
-                .on("click",onMouseClick);
-
+                .attr("y", _height/2)
+                .attr("x", _height/2.7)
+                //.attr("cursor","pointer")
+                .attr("width", _height/4)
+                .attr("height", _height/4)
+                //.attr("x",(3*_fontSize/2))
+                //.text(function (d) { return Math.round(_value) + "%" })
+						    //.text(":fjslkdfnsldnf");	
+						    .attr("xlink:href", image);
+                //.text(function (d) { return Math.round((_value-_minValue)/(_maxValue-_minValue)*100) + "%" })
+                //.style("font-size",_fontSize+"px")
+                //.on("click",onMouseClick);
+					
+					  label.enter().append("text")
+						    .attr("class","label")
+                .attr("y", _width/2-_fontSize/3)
+                .attr("x", _width/2)
+                .attr("width", _width)
+                //.attr("x",(3*_fontSize/2))
+                .text(function (d) { return Math.round(_value) + "%" })
+                .style("font-size",_fontSize+"px");
+						
             path.exit().transition().duration(500).attr("x",1000).remove();
 
 
@@ -147,9 +162,8 @@ function radialProgress(parent, width, height, colors) {
                 }
 
                 label.datum(Math.round(ratio*100));
-                label.transition().duration(_duration)
-                    .tween("text",labelTween);
-
+                //label.transition().duration(_duration)
+                   // .tween("text",labelTween);
             }
 
         });

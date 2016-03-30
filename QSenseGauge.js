@@ -22,7 +22,7 @@ define(["./radialProgress", "./d3.min", "css!./QSenseGauge.css"],
       ref: "Arc1",
       type: "integer",      
       component: "color-picker",
-      label: "Arc 1",
+      label: "Premier arc",
       defaultValue: 3  
     };
     //palette de sélection couleur 2
@@ -30,9 +30,17 @@ define(["./radialProgress", "./d3.min", "css!./QSenseGauge.css"],
       ref: "Arc2",
       type: "integer",
       component: "color-picker",
-      label: "Arc 1",
+      label: "Second arc",
       defaultValue: 2  
     };
+	
+	  var imageGauge = {
+			label:"Icon de la jauge",
+			component: "media",
+			ref: "iconGauge",
+			layoutRef: "myMedia",
+			type: "string"
+	  };
     
     //définition de l'objet
     return {
@@ -61,10 +69,11 @@ define(["./radialProgress", "./d3.min", "css!./QSenseGauge.css"],
               Colors: {
                 ref: "Color",
                 type: "items",
-                label: "Arc colors",
+                label: "Couleurs",
                 items: {
                   Colors1: ColorArc1,
-                  Colors2: ColorArc2
+                  Colors2: ColorArc2,
+									MediaGauge: imageGauge
                 }
               }
             }
@@ -97,6 +106,7 @@ define(["./radialProgress", "./d3.min", "css!./QSenseGauge.css"],
         var div = document.getElementById(id);
 
         //recup de la valeur de la mesure
+        var measureName = hc.qMeasureInfo[0].qFallbackTitle;
         var value = hc.qDataPages[0].qMatrix[0][0].qNum;
         //passage en %
         value = value * 100;
@@ -104,10 +114,10 @@ define(["./radialProgress", "./d3.min", "css!./QSenseGauge.css"],
         //couleur arc 1 et 2
         var colorAcr1 = palette[layout.Arc1];
         var colorAcr2 = palette[layout.Arc2];
-
-
+				
+				var iconGauge = layout.iconGauge;
         //Création de la jauge
-        var rad1 = radialProgress(div, width, height, [colorAcr1, colorAcr2])
+        var rad1 = radialProgress(div, width, height, [colorAcr1, colorAcr2], iconGauge)
           .value(value)
           .render();
        }
