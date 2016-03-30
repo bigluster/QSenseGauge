@@ -32,8 +32,9 @@ function radialProgress(parent, width, height, colors, image) {
         __width = width,
         __height = height,
         _diameter = Math.min(width, height),//150,
+				_minDiam = _diameter,
         _label="",
-        _fontSize=15;
+        _fontSize=10;
 
 
     var _mouseClick;
@@ -70,9 +71,9 @@ function radialProgress(parent, width, height, colors, image) {
                 .attr("height", __height);
 
 
-            var background = enter.append("g").attr("class","component")
-                .attr("cursor","pointer")
-                .on("click",onMouseClick);
+            var background = enter.append("g").attr("class","component");
+                //.attr("cursor","pointer")
+                //.on("click",onMouseClick);
 
 
             _arc.endAngle(360 * (Math.PI/180))
@@ -88,8 +89,14 @@ function radialProgress(parent, width, height, colors, image) {
 
             background.append("text")
                 .attr("class", "label")
-                .attr("transform", "translate(" + _width/2 + "," + (_width + _fontSize) + ")")
-                .text(_label);
+						    .attr("x", _width/2)
+                .attr("y", (_height + _fontSize/2))
+							  .attr("fill", colors[0])
+						    .attr("style", "font-weight: bold;")
+							  .text(_label)
+					      .style("font-size",_fontSize/2+"px");
+					 
+					
             var g = svg.select("g")
                 .attr("transform", "translate(" + _margin.left + "," + _margin.top + ")");
 

@@ -119,6 +119,7 @@ define(["./radialProgress", "./d3.min", "css!./QSenseGauge.css"],
         //Création de la jauge
         var rad1 = radialProgress(div, width, height, [colorAcr1, colorAcr2], iconGauge)
           .value(value)
+				  .label(measureName)
           .render();
        }
     };
