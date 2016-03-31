@@ -39,7 +39,7 @@ function radialProgress(parent, width, height, colors, image) {
     _minDiam = _diameter,
     _label = "",
 		_label2 = "",
-    _fontSize = 10;
+    _fontSize = 8;
 
 
   var _mouseClick;
@@ -143,25 +143,25 @@ function radialProgress(parent, width, height, colors, image) {
 
       label.enter().append("text")
         .attr("class", "label")
-        .attr("y", _height / 2 - _fontSize)
+        .attr("y", _height / 3)
         .attr("x", _height / 2)
         .attr("width", _width)
         .attr("fill", colors[0])
         .text(function(d) {
-          return _label.substr(0, 4) + " " + Math.round(_value) + "%"
+          return _label.substr(0, 18) + " " + Math.round(_value) + "%"
         })
         .style("font-size", _fontSize / 2 + "px");
 
       if (_value2 != 0) {
         label.enter().append("text")
           .attr("class", "label")
-          .attr("y", _height / 2 - _fontSize / 3)
+          .attr("y", _height / 2.5)
           .attr("x", _height / 2)
           .attr("width", _width)
           .attr("fill", colors[1])
           //.attr("x",(3*_fontSize/2))
           .text(function(d) {
-            return _label2.substr(0, 4) + " " + Math.round(_value2) + "%"
+            return _label2.substr(0, 18) + " " + Math.round(_value2) + "%"
           })
           .style("font-size", _fontSize / 2 + "px");
       }
@@ -242,7 +242,7 @@ function radialProgress(parent, width, height, colors, image) {
   function measure() {
     _width = _diameter - _margin.right - _margin.left - _margin.top - _margin.bottom;
     _height = _width;
-    _fontSize = _width * .2;
+    _fontSize = _width * .1;
     _arc.outerRadius(_width / 2);
     _arc.innerRadius(_width / 2 * .85);
     _arc2.outerRadius(_width / 2 * .85);
