@@ -25,7 +25,7 @@
 
 .qv-object-QSenseGauge .background {
     fill: #FFFFFF;
-    fill-opacity: 0.01;
+    fill-opacity: 0;
 }
 
 .qv-object-QSenseGauge .component {
@@ -41,7 +41,6 @@
     stroke-weight:0.1;
 
 }
-
 
 .qv-object-QSenseGauge .arc2 {
     stroke-weight:0.1;
