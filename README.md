@@ -1,5 +1,5 @@
 <h2>QSense Gauge</h2>
-<p>Better gauge</p>
+
 <h3>Introduction</h3>
 <p>
   This gauge is based on BrightPoint Consulting D3.js graph
