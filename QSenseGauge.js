@@ -56,6 +56,36 @@ define(["./radialProgress", "./d3.min", "css!./QSenseGauge.css"],
       layoutRef: "myMedia",
       type: "string"
     };
+	
+	  var affichageMesure1 = {
+				type: "boolean",
+				component: "switch",
+				label: "Afficher la mesure 1",
+				ref: "affichage1",
+				options: [{
+					value: true,
+					label: "On"
+				}, {
+					value: false,
+					label: "Off"
+				}],
+				defaultValue: false
+			};
+	
+	  var affichageMesure2 = {
+				type: "boolean",
+				component: "switch",
+				label: "Afficher la mesure 2",
+				ref: "affichage2",
+				options: [{
+					value: true,
+					label: "On"
+				}, {
+					value: false,
+					label: "Off"
+				}],
+				defaultValue: false
+			};
 
     //définition de l'objet
     return {
@@ -88,13 +118,15 @@ define(["./radialProgress", "./d3.min", "css!./QSenseGauge.css"],
                 items: {
                   Colors1: ColorArc1,
                   Colors2: ColorArc2,
-                  MediaGauge: imageGauge
+                  MediaGauge: imageGauge,
+									affichage1: affichageMesure1,
+									affichage2: affichageMesure2
                 }
               },
 							Limite:{
 								ref: "limite",
 								type: "items",
-								label: "Limites",
+								label: "Affichage",
 								items:{
 									limite1: limite1,
 									limite2: limite2
@@ -142,9 +174,12 @@ define(["./radialProgress", "./d3.min", "css!./QSenseGauge.css"],
         var colorAcr1 = palette[layout.Arc1];
         var colorAcr2 = palette[layout.Arc2];
 
+				console.log(layout.affichage1);
+				console.log(layout.affichage2);
+				
         var iconGauge = layout.iconGauge;
         //Création de la jauge
-        var rad1 = radialProgress(div, width, height, [colorAcr1, colorAcr2], iconGauge)
+        var rad1 = radialProgress(div, width, height, [colorAcr1, colorAcr2], iconGauge, [layout.affichage1, layout.affichage2])
           .value(value)
           .value2(value2)
           .label(measureName)

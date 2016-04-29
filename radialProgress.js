@@ -22,7 +22,7 @@
  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
  OTHER DEALINGS IN THE SOFTWARE.
  */
-function radialProgress(parent, width, height, colors, image) {
+function radialProgress(parent, width, height, colors, image, labelOK) {
   var colors = colors;
   var _data = null,
     _duration = 1000,
@@ -141,18 +141,23 @@ function radialProgress(parent, width, height, colors, image) {
         .attr("height", _height / 4)
         .attr("xlink:href", image);
 
-      label.enter().append("text")
-        .attr("class", "label")
-        .attr("y", _height / 3)
-        .attr("x", _height / 2)
-        .attr("width", _width)
-        .attr("fill", colors[0])
-        .text(function(d) {
-          return _label.substr(0, 18) + " " + Math.round(_value) + "%"
-        })
-        .style("font-size", _fontSize / 2 + "px");
+			console.log(labelOK[0]);
+			
+			if(labelOK[0]){ 
+			  label.enter().append("text")
+          .attr("class", "label")
+          .attr("y", _height / 3)
+          .attr("x", _height / 2)
+          .attr("width", _width)
+          .attr("fill", colors[0])
+          .text(function(d) {
+            return _label.substr(0, 18) + " " + Math.round(_value) + "%"
+          })
+          .style("font-size", _fontSize / 2 + "px");
+			}
 
-      if (_value2 != 0) {
+
+      if (_value2 != 0 && labelOK[1]) {
         label.enter().append("text")
           .attr("class", "label")
           .attr("y", _height / 2.5)
