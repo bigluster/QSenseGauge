@@ -114,7 +114,7 @@ define(["./radialProgress", "./d3.min", "css!./QSenseGauge.css"],
               Colors: {
                 ref: "Color",
                 type: "items",
-                label: "Couleurs",
+                label: "Affichage",
                 items: {
                   Colors1: ColorArc1,
                   Colors2: ColorArc2,
@@ -126,7 +126,7 @@ define(["./radialProgress", "./d3.min", "css!./QSenseGauge.css"],
 							Limite:{
 								ref: "limite",
 								type: "items",
-								label: "Affichage",
+								label: "Limites",
 								items:{
 									limite1: limite1,
 									limite2: limite2
@@ -174,8 +174,6 @@ define(["./radialProgress", "./d3.min", "css!./QSenseGauge.css"],
         var colorAcr1 = palette[layout.Arc1];
         var colorAcr2 = palette[layout.Arc2];
 
-				console.log(layout.affichage1);
-				console.log(layout.affichage2);
 				
         var iconGauge = layout.iconGauge;
         //Création de la jauge
