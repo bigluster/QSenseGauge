@@ -22,4 +22,4 @@
 You can add 2 measures, change limits, colors and add image.
 </p>
 
-<img src="./qsense_gauge.PNG"/>
+<img src="./qsense_gauge.PNG" width="200" height="200"/>
