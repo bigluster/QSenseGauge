@@ -3,7 +3,7 @@
 	"description" : "QSense simple gauge",
 	"icon" : "gauge-chart",
 	"type" : "visualization",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"author": "",
 	"homepage" : "",
 	"keywords" : "qlik-sense, visualization",
