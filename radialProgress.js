@@ -112,7 +112,7 @@ function radialProgress(parent, width, height, colors, image) {
 			  .attr("x", 0);
 
       var g = svg.select("g")
-        .attr("transform", "translate(" + _margin.left + "," + _margin.top + ")");
+        .attr("transform", "translate(" + 0 /*_margin.left*/ + "," + 0 /*_margin.top*/ + ")");
 
       _arc.endAngle(_currentArc);
       enter.append("g").attr("class", "arcs");
@@ -200,6 +200,7 @@ function radialProgress(parent, width, height, colors, image) {
         label.datum(Math.round(ratio * 100));
         //label.transition().duration(_duration)
         // .tween("text",labelTween);
+				console.log(svg[0][0]);
       }
 
     });

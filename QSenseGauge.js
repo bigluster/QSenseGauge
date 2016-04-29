@@ -152,6 +152,7 @@ define(["./radialProgress", "./d3.min", "css!./QSenseGauge.css"],
           .maxValue(layout.limite1)
 				  .maxValue2(layout.limite2)
           .render();
+
       }
     };
 
