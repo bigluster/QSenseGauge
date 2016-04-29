@@ -200,7 +200,6 @@ function radialProgress(parent, width, height, colors, image) {
         label.datum(Math.round(ratio * 100));
         //label.transition().duration(_duration)
         // .tween("text",labelTween);
-				console.log(svg[0][0]);
       }
 
     });
