@@ -19,5 +19,5 @@
 </ul>
 <h3>Case of use</h3>
 <p>
-You can add 2 measures, change limites, colors and add image.
+You can add 2 measures, change limits, colors and add image.
 </p>
