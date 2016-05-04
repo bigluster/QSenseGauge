@@ -25,6 +25,7 @@ You can add 2 measures, change limits, colors and add image.
 <h4>Features</h4>
 <ul>
   <li>2 measures</li>
+  <li>Change limit of each arc</li>
   <li>Change color (Qlik Sense color picker)</li>
   <li>Add icon image</li>
   <li>Enable/disable numbers</li>
