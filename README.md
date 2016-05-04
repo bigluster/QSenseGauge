@@ -22,4 +22,12 @@
 You can add 2 measures, change limits, colors and add image.
 </p>
 
+<h4>Features</h4>
+<ul>
+  <li>2 measures</li>
+  <li>Change color (Qlik Sense color picker)</li>
+  <li>Add icon image</li>
+  <li>Enable/disable numbers</li>
+</ul>
+
 <img src="./qsense_gauge.PNG" width="200" height="200"/>
