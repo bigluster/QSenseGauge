@@ -26,7 +26,7 @@ You can add 2 measures, change limits, colors and add image.
   <li>2 measures</li>
   <li>Change limit of each arc</li>
   <li>Change color (Qlik Sense color picker)</li>
-  <li>Add icon image</li>
+  <li>Add an image</li>
   <li>Enable/disable numbers</li>
   <li>Run on Qlik Sense 2.2</li>
 </ul>
