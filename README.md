@@ -8,7 +8,6 @@
 <h4>Desktop</h4>
 <ul>
  <li>Download the project (or checkout)</li>
- <li>Go to C:\Users\userName\Documents\Qlik\Extensions</li>
  <li>Unzip the file</li>
  <li>Copy the complete folder to C:\Users\userName\Documents\Qlik\Sense\Extensions</li>
 </ul>
