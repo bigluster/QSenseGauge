@@ -4,6 +4,8 @@
 <p>
   This gauge is based on BrightPoint Consulting D3.js graph
 </p>
+<img src="./qsense_gauge.PNG" width="200" height="200"/>
+
 <h3>Installation</h3>
 <h4>Desktop</h4>
 <ul>
@@ -21,7 +23,7 @@
 You can add 2 measures, change limits, colors and add image.
 </p>
 
-<h4>Features</h4>
+<h3>Features</h3>
 <ul>
   <li>2 measures</li>
   <li>Change limit of each arc</li>
@@ -29,11 +31,9 @@ You can add 2 measures, change limits, colors and add image.
   <li>Add an image</li>
   <li>Enable/disable numbers</li>
   <li>Run on Qlik Sense 2.2</li>
-</ul
+</ul>
 
-<h4>Change log</h4>
+<h3>Changelog</h3>
 <ul>
   <li>1.0.1 Use Qlik Sense format</li>
 </ul>
-
-<img src="./qsense_gauge.PNG" width="200" height="200"/>
