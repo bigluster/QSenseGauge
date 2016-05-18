@@ -151,7 +151,7 @@ function radialProgress(parent, width, height, colors, image, labelOK) {
           .attr("width", _width)
           .attr("fill", colors[0])
           .text(function(d) {
-            return _label.substr(0, 18) + " " + Math.round(_value) + "%"
+            return _label;
           })
           .style("font-size", _fontSize / 2 + "px");
 			}
@@ -166,7 +166,7 @@ function radialProgress(parent, width, height, colors, image, labelOK) {
           .attr("fill", colors[1])
           //.attr("x",(3*_fontSize/2))
           .text(function(d) {
-            return _label2.substr(0, 18) + " " + Math.round(_value2) + "%"
+            return _label2;
           })
           .style("font-size", _fontSize / 2 + "px");
       }
