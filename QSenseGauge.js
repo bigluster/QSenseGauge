@@ -162,12 +162,12 @@ define(["./radialProgress", "./d3.min", "css!./QSenseGauge.css"],
         var div = document.getElementById(id);
 
         //recup de la valeur de la mesure
-        var measureName = hc.qMeasureInfo[0].qFallbackTitle;
-        var value = hc.qDataPages[0].qMatrix[0][0].qNum * 100;
+        var measureName =  hc.qMeasureInfo[0].qFallbackTitle.substr(0, 13) + '... ' + hc.qDataPages[0].qMatrix[0][0].qText;
+        var value = hc.qDataPages[0].qMatrix[0][0].qNum;
 
         if (hc.qDataPages[0].qMatrix[0].length > 1) {
-          var value2 = hc.qDataPages[0].qMatrix[0][1].qNum * 100;
-          var measureName2 = hc.qMeasureInfo[1].qFallbackTitle;
+          var value2 = hc.qDataPages[0].qMatrix[0][1].qNum;
+          var measureName2 = hc.qMeasureInfo[1].qFallbackTitle.substr(0, 13) + '... ' + hc.qDataPages[0].qMatrix[0][1].qText;
         }
 
         //couleur arc 1 et 2
@@ -183,7 +183,7 @@ define(["./radialProgress", "./d3.min", "css!./QSenseGauge.css"],
           .label(measureName)
           .label2(measureName2)
           .maxValue(layout.limite1)
-				  .maxValue2(layout.limite2)
+	  .maxValue2(layout.limite2)
           .render();
 
       }
