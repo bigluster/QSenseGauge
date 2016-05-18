@@ -161,13 +161,24 @@ define(["./radialProgress", "./d3.min", "css!./QSenseGauge.css"],
         //recup de la zone d'affichage
         var div = document.getElementById(id);
 
+        var tooLong = ' ';
+        console.log(hc.qMeasureInfo[0].qFallbackTitle.length);
+        if (hc.qMeasureInfo[0].qFallbackTitle.length > 13) {
+          tooLong = '... ';
+        }
+
         //recup de la valeur de la mesure
-        var measureName =  hc.qMeasureInfo[0].qFallbackTitle.substr(0, 13) + '... ' + hc.qDataPages[0].qMatrix[0][0].qText;
+        var measureName =  hc.qMeasureInfo[0].qFallbackTitle.substr(0, 13) + tooLong + hc.qDataPages[0].qMatrix[0][0].qText;
         var value = hc.qDataPages[0].qMatrix[0][0].qNum;
 
         if (hc.qDataPages[0].qMatrix[0].length > 1) {
+	  tooLong = ' ';
+	  if (hc.qMeasureInfo[1].qFallbackTitle.length > 13){
+	    tooLong = '... ';
+	  }
+
           var value2 = hc.qDataPages[0].qMatrix[0][1].qNum;
-          var measureName2 = hc.qMeasureInfo[1].qFallbackTitle.substr(0, 13) + '... ' + hc.qDataPages[0].qMatrix[0][1].qText;
+          var measureName2 = hc.qMeasureInfo[1].qFallbackTitle.substr(0, 13) + tooLong + hc.qDataPages[0].qMatrix[0][1].qText;
         }
 
         //couleur arc 1 et 2
