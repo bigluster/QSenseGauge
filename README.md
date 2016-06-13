@@ -36,4 +36,5 @@ You can add 2 measures, change limits, colors and add image.
 <h3>Changelog</h3>
 <ul>
   <li>1.0.1 Use Qlik Sense format</li>
+  <li>1.0.2 Display label by default </li>
 </ul>
