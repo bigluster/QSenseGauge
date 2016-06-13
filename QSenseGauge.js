@@ -69,7 +69,7 @@ define(["./radialProgress", "./d3.min", "css!./QSenseGauge.css"],
 					value: false,
 					label: "Off"
 				}],
-				defaultValue: false
+				defaultValue: true
 			};
 	
 	  var affichageMesure2 = {
@@ -84,7 +84,7 @@ define(["./radialProgress", "./d3.min", "css!./QSenseGauge.css"],
 					value: false,
 					label: "Off"
 				}],
-				defaultValue: false
+				defaultValue: true
 			};
 
     //définition de l'objet
