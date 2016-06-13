@@ -2,7 +2,8 @@
 
 <h3>Introduction</h3>
 <p>
-  This gauge is based on BrightPoint Consulting D3.js graph
+  This gauge is based on BrightPoint Consulting D3.js graph. 
+  It can display two measures.
 </p>
 <img src="./qsense_gauge.PNG" width="200" height="200"/>
 
